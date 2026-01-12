@@ -33,11 +33,11 @@
 <section id="catalogo" class="grid">
 <div class="container grid__list">
 <article class="card">
-<img class="card__photo" src="public/Allanys.jpeg" alt="Allanys">
+<img class="card__photo" src="public/Roberta.jpeg" alt="Roberta">
 <div class="card__body">
-<h3 class="card__name">Allanys</h3>
- 
-<p class="card__bio">Conversas envolventes, presença marcante e total discrição para momentos únicos.</p>
+<h3 class="card__name">Roberta</h3>
+
+<p class="card__bio">Charme, elegância e ótima companhia para momentos especiais.</p>
  
  </div>
  </article>
@@ -106,10 +106,18 @@
  <div class="card__body">
  <h3 class="card__name">Aline</h3>
  
- <p class="card__bio">Elegância, discrição e atendimento personalizado para eventos e viagens.</p>
- 
- </div>
- </article>
+      <p class="card__bio">Elegância, discrição e atendimento personalizado para eventos e viagens.</p>
+
+    </div>
+  </article>
+
+  <article class="card">
+    <img class="card__photo" src="public/Allanys.jpeg" alt="Allanys">
+    <div class="card__body">
+      <h3 class="card__name">Allanys</h3>
+      <p class="card__bio">Conversas envolventes, presença marcante e total discrição para momentos únicos.</p>
+    </div>
+  </article>
 
 </div>
 </section>
@@ -164,5 +172,34 @@
 </div>
 </div>
  
+<div id="imageModal" class="image-modal">
+  <span class="image-modal__close">&times;</span>
+  <img class="image-modal__content" id="modalImage">
+</div>
+
+<script>
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
+  const closeBtn = document.querySelector('.image-modal__close');
+  const images = document.querySelectorAll('.card__photo');
+
+  images.forEach(img => {
+    img.addEventListener('click', function() {
+      modal.style.display = "flex";
+      modalImg.src = this.src;
+      modalImg.alt = this.alt;
+    });
+  });
+
+  closeBtn.addEventListener('click', function() {
+    modal.style.display = "none";
+  });
+
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+</script>
 </body>
 </html>
